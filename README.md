@@ -1,6 +1,10 @@
 # NaNi Login App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
+![alt text](https://erp.tufine.com.tr/login/cod.jpg)
+![alt text](https://erp.tufine.com.tr/login/cod2.jpg)
+![alt text](https://erp.tufine.com.tr/login/cod3.png)
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
 ## Development server
 
