@@ -1,0 +1,68 @@
+<div id="holding" class="bg">
+  <div class="container">
+    <div class="row justify-content-center align-items-center centerize">
+      <div class="col-xl-6 col-md-8 col-sm-10">
+        <div class="form-inner">
+          <div class="logo">
+            <img src="assets/img/logo.jpg" class="nanilogo"/>
+          </div>
+          <form (ngSubmit)="CompanyForm.valid ? onSubmit() : alertShow = true" novalidate #CompanyForm="ngForm">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text transparent" id="basic-addon1">
+                    <i class="fa fa-envelope-o"></i>
+                  </span>
+                </div>
+                <input type="text" name="email" [(ngModel)]="user.email" class="form-control frm"
+                       [attr.placeholder]="'email' | translate"
+                       [attr.aria-label]="'email' | translate">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fa fa-lock"></i>
+                  </span>
+                </div>
+                <input type="password" name="password" [(ngModel)]="user.password" class="form-control frm" placeholder="******" aria-label="Şifre">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="float-left m-b">
+                <select [(ngModel)]="selectedLanguage" class="form-control-sm cb" name="selectedLanguage"
+                        (change)="selectLang(selectedLanguage)">
+                  <option value="az">{{'lang_az' | translate}}</option>
+                  <option value="gb">{{'lang_gb' | translate}}</option>
+                  <option value="tr">{{'lang_tr' | translate}}</option>
+                  <option value="ru">{{'lang_ru' | translate}}</option>
+                  <option value="fa">{{'lang_fa' | translate}}</option>
+                </select>
+              </div>
+              <div class="form-check form-check-inline float-right forgot l-n">
+                <a [routerLink]="['/auth/reset-password']">{{'forgot_pass' | translate}}</a>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-12">
+                  <button class="btn btn-block btn-naniblue">{{'login' | translate}}</button>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-sm-12">
+                  <a class="btn btn-link w-100" [routerLink]="['/auth/register']">{{'register' | translate}}</a>
+                </div>
+              </div>
+            </div>
+            <na-alert [message]="errorMessage" type="error" [show]="errorStatus" (onClose)="errorStatus = false"></na-alert>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

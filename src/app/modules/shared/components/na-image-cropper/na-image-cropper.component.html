@@ -1,0 +1,66 @@
+<div class="modal fade" bsModal #NaImageCropperModal="bs-modal" [config]="{backdrop: 'static'}"
+     tabindex="-1" role="dialog" aria-labelledby="dialog-static-name">
+  <div class="modal-dialog" [ngClass]="showImage ? 'modal-sm' : 'modal-lg'">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-static-name"
+            class="modal-title pull-left">{{(showImage ? imageTitle : 'image_resize') | translate}}</h4>
+        <button type="button" class="close pull-right" aria-label="Close"
+                (click)="closeModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="showImage">
+          <img [alt]="imageTitle" class="show-image" [src]="imgSrc"/>
+        </div>
+        <div *ngIf="!showImage">
+          <button class="btn btn-sm btn-default m-1" (click)="openInput($event)">{{'upload_image' | translate}}</button>
+          <input id="imageCropperInput"
+                 type="file"
+                 style="display: none;"
+                 (change)="fileChangeEvent($event)"
+                 accept="image/*"/>
+          <div class="col-md-12 col-sm-12 p-1 d-flex">
+            <div class="col-md-6 col-sm-6 main-cropped-image">
+              <image-cropper
+                [imageChangedEvent]="imageChangedEvent"
+                [maintainAspectRatio]="true"
+                [aspectRatio]="4 / 3"
+                [resizeToWidth]="428"
+                [cropperMinWidth]="428"
+                [cropperMinHeight]="428"
+                [imageQuality]="100"
+                [onlyScaleDown]="true"
+                [roundCropper]="false"
+                outputType="base64"
+                format="jpeg"
+                (imageCropped)="imageCropped($event)"
+                (imageLoaded)="imageLoaded()"
+                [style.display]="showCropper ? null : 'none'"
+                [alignImage]="'left'"></image-cropper>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <img alt="Na-Image-Cropper" class="cropped-image" [src]="croppedImage"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button *ngIf="!showImage"
+                type="button"
+                (click)="applyImage()"
+                class="btn btn-sm btn-greenish"
+                data-dismiss="modal">
+          {{'apply' | translate}}
+        </button>
+        <button type="button"
+                class="btn btn-default btn-sm"
+                data-dismiss="modal"
+                (click)="closeModal()">
+          {{'close' |translate}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,69 @@
+<header>
+  <nav id="nani-nav" class="na-navbar navbar navbar-expand-lg navbar-dark bg-black">
+    <a class="navbar-brand">
+      <img src="assets/img/logo.png">
+    </a>
+    <button class="menu-button" naSidebarMinimizer>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="namik" naClickOutside (clickOutside)="mobileMenuOutsideClick()">
+      <button class="navbar-toggler" type="button" (click)="showMenu()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="c-header-nav-item dropdown show">
+        <div class="dropdown-menu dropdown-menu-right pt-0" [class.show]="showMobileMenu">
+          <div class="dropdown-header bg-light py-2">
+            <strong>{{'general_information' | translate}}</strong>
+          </div>
+          <div class="dropdown-header bg-light py-2"><strong>{{'settings' | translate}}</strong></div>
+          <a class="dropdown-item" routerLink="/profile">
+            {{'profile' | translate}}
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" (click)="lockScreen()">
+            <svg id="cil-lock-locked" viewBox="0 0 24 24">
+              <title>lock-locked</title>
+              <path
+                d="M18 9.375v-2.625c0-3.314-2.686-6-6-6s-6 2.686-6 6v0 2.625h-1.875v6c0 4.342 3.533 7.875 7.875 7.875s7.875-3.533 7.875-7.875v-6zM7.5 6.75c0-2.485 2.015-4.5 4.5-4.5s4.5 2.015 4.5 4.5v0 2.625h-9zM18.375 15.375c0 3.515-2.86 6.375-6.375 6.375s-6.375-2.86-6.375-6.375v-4.5h12.75z"></path>
+            </svg>
+            {{'lock_screen' | translate}}
+          </a>
+          <a class="dropdown-item" (click)="_logout()">
+            <svg id="cil-account-logout" viewBox="0 0 24 24">
+              <title>account-logout</title>
+              <path
+                d="M3.617 12.752l12.872-0v-1.5h-12.872l3.518-3.518-1.061-1.061-5.329 5.329 5.329 5.329 1.061-1.061-3.518-3.518z"></path>
+              <path d="M7.5 0.75v1.5h14.25v19.5h-14.25v1.5h15.75v-22.5h-15.75z"></path>
+            </svg>
+            {{'exit' | translate}}
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse pull-right" id="navbarNavAltMarkup">
+      <div class="navbar-nav col-md-3 col-sm-3"></div>
+      <div class="navbar-nav col-md-3 col-sm-3 col-xs-2"></div>
+      <div class="navbar-nav col-md-6 col-sm-6 flex-end" id="action-list">
+        <ul>
+          <li class="nav-item nav-link ui-clickable" id="user-action">
+            <span class="user-status online">{{userProfile?.surname + ' ' + userProfile?.name}} <i class="fa fa-caret-down"></i></span>
+            <div class="actions">
+              <ul>
+                <li (click)="lockScreen()">
+                  <i class="fa fa-sign-out"></i>&nbsp;
+                  {{'lock_screen' | translate}}
+                </li>
+                <li (click)="_logout()"><i class="fa fa-sign-out"></i>&nbsp;
+                  {{'exit' | translate}}
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-link" (click)="toggleSidebar()" id="sidebar-action">
+            <i class="fa fa-cogs"></i>&nbsp;
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,9 @@
+<div *ngIf="show" class="{{ type }} na-alert">
+  <div class="table">
+    <div class="icon"><i class="fa {{ iconClass(type) }}"></i></div>
+    <div class="message">
+      <span>{{message | translate}}</span>
+    </div>
+    <a class="close" *ngIf="showClose" (click)="removeAlert()">&times;</a>
+  </div>
+</div>

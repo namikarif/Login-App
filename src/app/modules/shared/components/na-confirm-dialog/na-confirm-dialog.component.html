@@ -1,0 +1,31 @@
+<div class="na-confirm-alert">
+  <div class="na-confirm-alert-dialog" [ngClass]="options.customClass">
+    <h2 class="na-confirm-alert-title">{{options.title}}</h2>
+    <div id="na-confirm-alert-content" class="na-confirm-alert-content">
+      <label class="title" *ngIf="options.text">
+        {{options.text}}
+      </label>
+      <input *ngIf="options.confirm"
+             [(ngModel)]="checkbox"
+             type="checkbox"
+             id="na-confirm-checkbox"
+             name="l-confirm-checkbox" />
+      <label for="na-confirm-checkbox" *ngIf="options.confirm">{{options.inputPlaceholder | translate}}</label>
+      <div *ngIf="options.html" [innerHTML]="options.html | safeHtml"></div>
+    </div>
+    <div class="na-confirm-alert-buttons-wrapper" style="display: block;">
+      <button type="button"
+              tabindex="-1"
+              id="confirmButton"
+              (click)="onConfirm()"
+              [ngClass]="options.confirmButtonClass"
+              *ngIf="options.showConfirmButton">{{options.confirmButtonText}}</button>
+      <button type="button"
+              tabindex="-1"
+              id="cancelButton"
+              (click)="onCancel()"
+              [ngClass]="options.cancelButtonClass"
+              *ngIf="options.showCancelButton">{{options.cancelButtonText}}</button>
+    </div>
+  </div>
+</div>

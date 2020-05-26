@@ -1,0 +1,85 @@
+.profile-container {
+  flex: 1 auto;
+  padding: 30px;
+  height: 100%;
+  background-color: #f2f3f8;
+  .profile-header {
+    .profile-title {
+      display: inline-block;
+      padding: 7px 25px 7px 0;
+      font-family: Roboto;
+      font-weight: 300;
+      font-size: 1.55rem;
+      vertical-align: middle;
+      margin: 0 15px 0 0;
+      color: #3f4047;
+      text-align: center;
+    }
+  }
+  .profile-body {
+    height: calc(100% + 20px);
+    .row {
+      height: 100%;
+    }
+    .full-height {
+      height: calc(100% - 0.8rem);
+      -webkit-box-shadow: 0 1px 15px 1px rgba(69, 65, 78, 0.08);
+      -moz-box-shadow: 0 1px 15px 1px rgba(69, 65, 78, 0.08);
+      box-shadow: 0 1px 15px 1px rgba(69, 65, 78, 0.08);
+      background-color: #ffffff;
+      margin-bottom: 2.2rem;
+      .profile-detail-card {
+        padding: 5px 0;
+        margin: 0;
+        .profile-img {
+          text-align: center;
+          //padding: 0 5px 0 0;
+          .profile-img-wrapper {
+            border: 2px solid #f4f5f8;
+            padding: 8px;
+            display: inline-block;
+            margin: 2rem auto 0.7rem auto;
+            -webkit-border-radius: 100%;
+            -moz-border-radius: 100%;
+            -ms-border-radius: 100%;
+            -o-border-radius: 100%;
+            border-radius: 100%;
+            img {
+              text-align: center;
+              max-width: 130px !important;
+              margin: 0 auto !important;
+              -webkit-border-radius: 100%;
+              -moz-border-radius: 100%;
+              -ms-border-radius: 100%;
+              -o-border-radius: 100%;
+              border-radius: 100%;
+            }
+          }
+        }
+      }
+      .user-detail {
+        text-align: center;
+        span {
+          margin: auto;
+          font-size: 15px;
+        }
+      }
+      .body-separator {
+        border-bottom: 1px solid #f4f5f8;
+        height: 0;
+        overflow: hidden;
+        margin: 30px -2.2rem;
+      }
+      form {
+        .form-title {
+          text-align: center;
+          font-size: 20px;
+        }
+        .form-seperator {
+          border-top: 1px dashed #ebedf2;
+          margin: 10px -20px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,337 @@
+.filteredMenu {
+  list-style: none;
+  position: absolute;
+  border: 1px solid #d2d3d4;
+  background-color: #edebeb;
+  width: 100%;
+  padding: 0;
+  height: 100%;
+  font-size: 14px;
+  border-right: none;
+
+  li {
+    padding: 10px 15px;
+    width: 100%;
+    border-bottom: 1px solid #d2d3d4;
+    float: right;
+
+    &:hover {
+      color: #16c5ff;
+    }
+
+    span {
+      cursor: pointer;
+    }
+  }
+}
+
+#menus {
+  display: none;
+  border: 1px #F1F7F6 solid;
+  background: #fafafa;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    width: 90px;
+
+    li {
+      list-style: none;
+      width: 100%;
+      padding: 2px 5px;
+      height: 30px;
+      border-bottom: 1px red solid;
+      cursor: pointer;
+    }
+
+    li:last-child {
+      border: none;
+    }
+
+    li:hover {
+      background: #96abb4;
+      color: #c2b413;
+    }
+  }
+}
+
+$appbar-height: 40px;
+$navbar-height: 50px;
+$list-width: 300px;
+$gap: 10px;
+$scrollbar-thickness: 17px;
+$list-header-height: 36px;
+$list-footer-height: 36px;
+// Misc
+$list-border-radius: 5px;
+$card-border-radius: 3px;
+// Colors
+$board-bg-color: #0079bf;
+$appbar-bg-color: #0067a3;
+$list-bg-color: #e2e4e6;
+
+body {
+  margin: 0;
+
+  font-family: 'Roboto';
+  font-size: 14px;
+  line-height: 1.3em;
+}
+
+.ui {
+  height: 100vh;
+
+  display: grid;
+  grid-template-rows: $appbar-height $navbar-height 1fr;
+  //grid-template-columns: 100%;
+
+  background-color: $board-bg-color;
+  color: #eee;
+}
+
+.navbar {
+  padding-left: $gap;
+  display: flex;
+  align-items: center;
+
+  &.app {
+    background-color: $appbar-bg-color;
+    font-size: 1.5rem;
+  }
+
+  &.board {
+    font-size: 1.1rem;
+  }
+}
+
+.lists {
+  display: flex;
+  overflow-x: auto;
+  //width: 100%; // This is needed for FF < 54
+  > * {
+    flex: 0 0 auto; // 'rigid' lists
+    margin-left: $gap;
+  }
+
+  &::after {
+    content: '';
+    flex: 0 0 $gap;
+  }
+}
+
+.list {
+  width: $list-width;
+  height: calc(100% - #{$gap} - #{$scrollbar-thickness});
+
+  > * {
+    background-color: $list-bg-color;
+    color: #333;
+
+    padding: 0 $gap;
+  }
+
+  header {
+    line-height: $list-header-height;
+    font-size: 16px;
+    font-weight: bold;
+    border-top-left-radius: $list-border-radius;
+    border-top-right-radius: $list-border-radius;
+  }
+
+  footer {
+    line-height: $list-footer-height;
+    border-bottom-left-radius: $list-border-radius;
+    border-bottom-right-radius: $list-border-radius;
+    color: #888;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+
+    max-height: calc(100% - #{$list-header-height} - #{$list-footer-height});
+    overflow-y: auto;
+
+    li {
+      background-color: #fff;
+      padding: $gap;
+
+      &:not(:last-child) {
+        margin-bottom: $gap;
+      }
+
+      border-radius: $card-border-radius;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+
+      img {
+        display: block;
+        width: calc(100% + 2 * #{$gap});
+        margin: -$gap 0 $gap (-$gap);
+        border-top-left-radius: $card-border-radius;
+        border-top-right-radius: $card-border-radius;
+      }
+    }
+  }
+}
+
+.search-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #2f3640;
+  height: 40px;
+  border-radius: 40px;
+  padding: 0;
+
+  &:hover {
+    .search-txt {
+      width: 240px;
+      padding: 0 0 0 15px;
+    }
+
+    .search-btn {
+      background: white;
+      color: black;
+    }
+  }
+
+  .search-btn {
+    color: #e84118;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #2f3640;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+    cursor: pointer;
+
+    i {
+      font-size: 30px;
+    }
+  }
+
+  .search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0;
+    font-weight: bold;
+  }
+}
+
+$color1: #f4f4f4;
+$color2: #3197EE;
+
+.radio {
+  margin: 0.5rem;
+
+  input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+
+    + .radio-label {
+      &:before {
+        content: '';
+        background: $color1;
+        border-radius: 100%;
+        border: 1px solid darken($color1, 25%);
+        display: inline-block;
+        width: 1.4em;
+        height: 1.4em;
+        position: relative;
+        top: -0.2em;
+        margin-right: 1em;
+        vertical-align: top;
+        cursor: pointer;
+        text-align: center;
+        transition: all 250ms ease;
+      }
+    }
+
+    &:checked {
+      + .radio-label {
+        &:before {
+          background-color: $color2;
+          box-shadow: inset 0 0 0 4px $color1;
+        }
+      }
+    }
+
+    &:focus {
+      + .radio-label {
+        &:before {
+          outline: none;
+          border-color: $color2;
+        }
+      }
+    }
+
+    &:disabled {
+      + .radio-label {
+        &:before {
+          box-shadow: inset 0 0 0 4px $color1;
+          border-color: darken($color1, 25%);
+          background: darken($color1, 25%);
+        }
+      }
+    }
+
+    + .radio-label {
+      &:empty {
+        &:before {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+.overview {
+  margin: 10px 0 0 0;
+  padding: 0;
+
+  .left-group {
+    text-align: left;
+
+    .title {
+      margin: auto 0;
+    }
+  }
+
+  .right-group {
+    padding-right: 5px;
+    margin-right: 0;
+
+    label {
+      text-align: right;
+      margin: auto 0;
+    }
+
+    span {
+      display: flex;
+      padding-right: 0;
+      margin-right: 0;
+
+      .fas {
+        margin: auto 0;
+      }
+
+      .fa-compress-arrows-alt {
+        display: none;
+      }
+    }
+  }
+}

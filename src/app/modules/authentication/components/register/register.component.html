@@ -1,0 +1,139 @@
+<div id="holding" class="bg">
+  <div class="container">
+    <div class="row justify-content-center align-items-center centerize">
+      <div class="col-xl-6 col-md-8 col-sm-10">
+        <div class="form-inner">
+          <div class="logo">
+            <img [src]="userImg" (click)="openImg($event)" class="nanilogo" alt="user-image"/>
+            <button class="image-change-button btn btn-sm btn-link" (click)="openImageCropper()"><i
+              class="fa fa-camera"></i> {{'change_picture' | translate}}</button>
+          </div>
+          <form (ngSubmit)="onSubmit()" novalidate #RegisterForm="ngForm">
+            <div class="form-group">
+              <div class="input-group" [ngClass]="(name.invalid && alertShow) ? 'error' : ''">
+                <div class="input-group-prepend">
+                  <span class="input-group-text transparent" id="name">
+                    <i class="fa fa-user"></i>
+                  </span>
+                </div>
+                <input type="text"
+                       name="name"
+                       required
+                       #name="ngModel"
+                       [(ngModel)]="user.name"
+                       class="form-control frm"
+                       [attr.placeholder]="'name' | translate"
+                       [attr.aria-label]="'name' | translate">
+              </div>
+              <div *ngIf="alertShow && name.invalid" class="errorMessage">
+                {{'important_area' | translate}}
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group" [ngClass]="(surname.invalid && alertShow) ? 'error' : ''">
+                <div class="input-group-prepend">
+                  <span class="input-group-text transparent" id="surname">
+                    <i class="fa fa-user"></i>
+                  </span>
+                </div>
+                <input type="text"
+                       name="surname"
+                       required
+                       #surname="ngModel"
+                       [(ngModel)]="user.surname"
+                       class="form-control frm"
+                       [attr.placeholder]="'surname' | translate"
+                       [attr.aria-label]="'surname' | translate">
+              </div>
+              <div *ngIf="alertShow && surname.invalid" class="errorMessage">
+                {{'important_area' | translate}}
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group" [ngClass]="(email.invalid && alertShow) ? 'error' : ''">
+                <div class="input-group-prepend">
+                  <span class="input-group-text transparent" id="basic-addon1">
+                    <i class="fa fa-envelope-o"></i>
+                  </span>
+                </div>
+                <input type="text"
+                       name="email"
+                       class="form-control frm"
+                       required
+                       #email="ngModel"
+                       [(ngModel)]="user.email"
+                       [attr.placeholder]="'email' | translate"
+                       [attr.aria-label]="'email' | translate">
+              </div>
+              <div *ngIf="alertShow && email.invalid" class="errorMessage">
+                {{'important_area' | translate}}
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text transparent" id="phone-addon1">
+                    <i class="fa fa-phone"></i>
+                  </span>
+                </div>
+                <input type="text"
+                       name="phone"
+                       [(ngModel)]="user.phone"
+                       class="form-control frm"
+                       [attr.placeholder]="'phone' | translate"
+                       [attr.aria-label]="'phone' | translate">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group" [ngClass]="(password.invalid && alertShow) ? 'error' : ''">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fa fa-lock"></i>
+                  </span>
+                </div>
+                <input type="password"
+                       name="password"
+                       class="form-control frm"
+                       required
+                       #password="ngModel"
+                       [(ngModel)]="user.password"
+                       placeholder="******" aria-label="Şifre">
+              </div>
+              <div *ngIf="alertShow && password.invalid" class="errorMessage">
+                {{'important_area' | translate}}
+              </div>
+            </div>
+            <div class="form-check" [ngClass]="(checkbox.invalid && alertShow) ? 'error' : ''">
+              <input id="user_rule"
+                     type="checkbox"
+                     name="checkbox"
+                     class="form-check-input"
+                     required
+                     #checkbox="ngModel"
+                     [(ngModel)]="user.rule">
+              <label class="form-check-label" for="user_rule">{{'accept_rule' | translate}}</label>
+            </div>
+            <div *ngIf="alertShow && checkbox.invalid" class="errorMessage">
+              {{'important_area' | translate}}
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-12">
+                  <button class="btn btn-block btn-naniblue">{{'register' | translate}}</button>
+                </div>
+              </div>
+            </div>
+            <na-alert [message]="errorMessage | translate" type="error" [show]="errorStatus"
+                      (onClose)="errorStatus = false"></na-alert>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<na-image-cropper *ngIf="showImageCropper"
+                  [imgSrc]="userImg"
+                  [imageTitle]="('user_image' | translate)"
+                  [showImage]="showImage"
+                  (onApplyImage)="onApplyImage($event)"
+                  (onCloseModal)="closeImageModal()"></na-image-cropper>

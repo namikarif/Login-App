@@ -1,0 +1,46 @@
+<div class="lock-screen-wrapper">
+  <div class="lock-screen-logo">
+    <a><b>NaNi</b> Login App</a>
+  </div>
+  <div class="lock-screen-name">{{user?.name}} {{user?.surname}}</div>
+  <div class="lock-screen-item">
+    <div class="lock-screen-image">
+      <img [src]="user?.user_img ? (environment.apiUrl + '/' + user.user_img) : 'assets/img/avatars/empty.png'" [alt]="user?.name">
+    </div>
+    <form class="lock-screen-credentials" #LockScreenForm="ngForm">
+      <div class="input-group" [ngClass]="invalidPassword && Password.invalid ? 'error-input' : ''">
+        <input type="password"
+               name="password"
+               [(ngModel)]="password"
+               [disabled]="loading"
+               class="form-control"
+               #Password="ngModel"
+               (ngModelChange)="invalidPassword = false"
+               required
+               placeholder="{{translate('password')}}">
+        <div class="input-group-btn">
+          <button type="button"
+                  class="btn"
+                  (keydown.enter)="!loading ? login() : false"
+                  (click)="!loading ? login() : false">
+            <i *ngIf="!loading" class="fa fa-arrow-right text-muted"></i>
+            <i *ngIf="loading" class="fa fa-spinner fa-spin fa-fw"></i>
+          </button>
+        </div>
+      </div>
+      <div *ngIf="invalidPassword && Password.invalid" class="errorMessage">
+        {{translate('important_area')}}
+      </div>
+    </form>
+  </div>
+  <div class="help-block text-center">
+    {{translate('enter_your_password_to_retrieve_your_session')}}
+  </div>
+  <div class="text-center">
+    <a class="router-link" (click)="routerLink('/auth/login')">{{translate('or_sign_in_as_a_different_user')}}</a>
+  </div>
+  <div class="lock-screen-footer text-center">
+    Copyright © 2018-{{currentYear}} <b><a href="https://www.tufine.com.tr" class="text-black">NaNi Co Ltd</a></b><br>
+    {{translate('all_rights_reserved')}}
+  </div>
+</div>

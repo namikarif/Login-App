@@ -1,0 +1,121 @@
+.filteredMenu {
+  list-style: none;
+  position: absolute;
+  border: 1px solid #d2d3d4;
+  background-color: #fff;
+  max-height: calc(100vh - 138px);
+  width: 100%;
+  padding: 0;
+  height: 100%;
+  overflow-y: auto;
+  font-size: 14px;
+  border-right: none;
+
+  li {
+    background: #fff;
+    padding: 5px 15px !important;
+    font-size: 13px;
+    color: #678098 !important;
+    width: 97%;
+    border-bottom: 1px dashed #e0e0e0;
+    position: relative;
+
+    &.active {
+      color: #5b9bd1 !important;
+    }
+
+    &:hover {
+      color: #5b9bd1 !important;
+    }
+
+    label {
+      margin: 0;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    i {
+      cursor: pointer;
+    }
+
+    .fa-trash-alt {
+      position: absolute;
+      right: 0;
+      top: 10px;
+      width: 20px;
+    }
+  }
+
+  &:after {
+    content: "";
+    background: rgba(0, 0, 0, 0.15);
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 1px;
+    -webkit-transform: translateZ(0px);
+  }
+}
+
+#menus {
+  display: none;
+  border: 1px #F1F7F6 solid;
+  background: #fafafa;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    width: 90px;
+
+    li {
+      list-style: none;
+      width: 100%;
+      padding: 2px 5px;
+      height: 30px;
+      border-bottom: 1px red solid;
+      cursor: pointer;
+    }
+
+    li:last-child {
+      border: none;
+    }
+
+    li:hover {
+      background: #96abb4;
+      color: #c2b413;
+    }
+  }
+}
+
+.menu-collapsed-button {
+  display: none;
+  height: 34px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #eef6ff;
+
+  .menu-button {
+    margin: auto;
+    background-color: transparent;
+    border-radius: 0.25rem;
+    border: 1px solid grey;
+  }
+}
+
+i.fa-star {
+  color: #3B79B7;
+  position: absolute;
+  right: 0;
+  margin: 0 !important;
+  z-index: 1;
+  font-size: 12px !important;
+}
+
+.menu-title {
+  width: calc(100% - 5px);
+  cursor: pointer;
+}

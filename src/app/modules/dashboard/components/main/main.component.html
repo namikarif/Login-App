@@ -1,0 +1,13 @@
+<na-header (onShowSidebar)="showSidebar = true;"></na-header>
+<na-sidebar [showSidebar]="showSidebar" (onHideSidebar)="showSidebar = false;"></na-sidebar>
+<na-loading></na-loading>
+<main>
+  <div class="grid">
+    <na-menu (onHandleError)="handleError($event)"></na-menu>
+    <div class="main-screen">
+      <ng-template #DashboardContainer></ng-template>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <na-panel></na-panel>
+</main>

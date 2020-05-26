@@ -1,0 +1,128 @@
+.company-description {
+  display: inline-grid !important;
+  padding: 0 !important;
+  position: absolute !important;
+  right: 135px !important;
+  text-align: left !important;
+}
+
+.nav-right-group {
+  padding-left: 80px !important;
+
+  ul {
+    display: flex !important;
+    padding: 0 !important;
+    margin: 0 !important;
+
+    li {
+      padding: 0 !important;
+      margin: auto !important;
+
+      i {
+        vertical-align: -webkit-baseline-middle !important;
+        //aside-collapsed
+      }
+
+      &.display-contents {
+        display: contents !important;
+
+        .menu-button {
+
+        }
+      }
+    }
+  }
+}
+
+.namik {
+  .dropdown {
+    right: 5px;
+    top: 38px;
+    position: absolute;
+    min-width: 180px;
+  }
+
+  .dropdown-menu {
+    min-width: 180px !important;
+    border: 1px solid #bdbdbd;
+    box-shadow: 0 4px 5px 0 rgba(60, 75, 100, .14), 0 1px 10px 0 rgba(60, 75, 100, .12), 0 2px 4px -1px rgba(60, 75, 100, .2) !important;
+  }
+
+  .dropdown-header {
+    padding: .5rem 1.25rem !important;
+    margin-bottom: 0 !important;
+    font-size: .765625rem !important;
+    white-space: nowrap !important;
+    color: #8a93a2 !important;
+  }
+
+  .c-header-nav .dropdown-item {
+    min-width: 180px !important;
+  }
+
+  .dropdown-item {
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: .5rem 1.25rem !important;
+    clear: both !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    text-align: inherit !important;
+    white-space: nowrap !important;
+    background-color: transparent !important;
+    border: 0 !important;
+    color: #4f5d73 !important;
+  }
+
+  .c-icon {
+    display: inline-block !important;
+    color: inherit !important;
+    text-align: center !important;
+    fill: currentColor !important;
+    width: 1rem !important;
+    height: 1rem !important;
+    font-size: 1rem !important;
+  }
+
+  svg {
+    width: 14px;
+    margin-right: 8px;
+    vertical-align: middle !important;
+    overflow: hidden !important;
+  }
+
+  .badge-warning {
+    color: #4f5d73 !important;
+    background-color: #f9b115 !important;
+  }
+
+  .badge {
+    margin-left: auto !important;
+    display: inline-block !important;
+    padding: .25em .4em !important;
+    font-size: 75% !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    vertical-align: baseline !important;
+    border-radius: .25rem !important;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !important;
+  }
+
+  .dropdown-divider {
+    height: 0 !important;
+    margin: 4px 0 !important;
+    overflow: hidden !important;
+    border-top: 1px solid #d8dbe0 !important;
+  }
+
+  .dropdown-item:hover, .dropdown-item:focus {
+    text-decoration: none;
+    color: #455164;
+    background-color: #ebedef;
+  }
+}

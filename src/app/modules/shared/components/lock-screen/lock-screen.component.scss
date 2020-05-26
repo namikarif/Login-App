@@ -1,0 +1,74 @@
+.lock-screen-logo {
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 300;
+
+  a {
+    font-size: 28px;
+    color: #444;
+  }
+}
+
+.lock-screen-wrapper {
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 10%;
+}
+
+.lock-screen-name {
+  text-align: center;
+  font-weight: 600;
+}
+
+.lock-screen-item {
+  border-radius: 4px;
+  padding: 0;
+  background: #fff;
+  position: relative;
+  margin: 10px auto 30px auto;
+  width: 290px;
+}
+
+.lock-screen-image {
+  border-radius: 50%;
+  position: absolute;
+  left: -10px;
+  top: -25px;
+  background: #fff;
+  padding: 5px;
+  z-index: 10;
+
+  > img {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.lock-screen-credentials {
+  margin-left: 70px;
+
+  .form-control {
+    border: 0;
+  }
+
+  .btn {
+    background-color: #fff;
+    border: 0;
+    height: 100%;
+    padding: 0 10px;
+  }
+}
+
+.lock-screen-footer {
+  margin-top: 10px;
+}
+
+.error-input {
+  border-bottom: 1px red solid !important;
+}
+
+.router-link {
+  color: #3c8dbc !important;
+  cursor: pointer;
+}

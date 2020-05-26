@@ -1,0 +1,168 @@
+<aside>
+  <div class="search-input">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <i class="fa fa-search"></i>
+        </span>
+      </div>
+      <label for="searchmenu" style="display: none;"></label>
+      <input autocomplete="off"
+             name="searchmenu"
+             id="searchmenu"
+             placeholder="{{'search' | translate}}"
+             #searchInput
+             (ngModelChange)="searchInputValueChange($event)"
+             [autofocus]="true"
+             [(ngModel)]="searchText">
+    </div>
+  </div>
+  <div class="menu-collapsed-button">
+  </div>
+  <div class="tabs">
+    <tabset>
+      <tab [heading]="'menus' | translate" id="menusTab">
+        <div class="aside" *ngIf="!searchText">
+          <div class="aside-inner">
+            <nav class="sidebar">
+              <ul class="nav">
+                <li *ngFor="let item of structuredMenu; let i = index">
+                  <a *ngIf="!item.children" [attr.id]="'item' + item.id"
+                     title="{{item.title | translate}}"
+                     naNavDropdown naMouseHover>
+                    <label class="menu-title" (click)="item.component ? openComponent(item) : false">
+                      <i [class]="item.icon" *ngIf="item.icon"></i>
+                      <span>{{item.title | translate}}</span>
+                    </label>
+                    <i [ngClass]="item.pinned ? 'fas' : 'fal'" class="fa-star"
+                       (click)="clickFavoriteButton(item)"
+                       *ngIf="item.component && item.canBePinned"></i>
+                  </a>
+                  <a *ngIf="item.children"
+                     title="{{item.title | translate}}"
+                     class="nav-dropdown-toggle"
+                     naNavDropdown naMouseHover>
+                    <i [class]="item.icon"></i>
+                    <span>{{item.title | translate}}</span>
+                  </a>
+                  <ul *ngIf="item.children" class="nav sidebar-subnav level1">
+                    <li class="sidebar-subnav-header">{{item.title | translate}}</li>
+                    <li *ngFor='let firstChildren of item.children; let firstIndex = index'>
+                      <a *ngIf="!firstChildren.children"
+                         title="{{firstChildren.title | translate}}"
+                         [attr.id]="'firstIndex' + firstChildren.id"
+                         naNavDropdown naMouseHover>
+                        <label class="menu-title" (click)="firstChildren.component ? openComponent(firstChildren) : false">
+                          <i [class]="firstChildren.icon" *ngIf="firstChildren.icon"></i>
+                          <span>{{firstChildren.title | translate}}</span>
+                        </label>
+                        <i [ngClass]="firstChildren.pinned ? 'fas' : 'fal'" class="fa-star"
+                           (click)="clickFavoriteButton(firstChildren)"
+                           *ngIf="firstChildren.component && firstChildren.canBePinned"></i>
+                      </a>
+                      <a *ngIf="firstChildren.children"
+                         title="{{firstChildren.title | translate}}"
+                         class="nav-dropdown-toggle"
+                         naNavDropdown naMouseHover>
+                        <span>{{firstChildren.title | translate}}</span>
+                      </a>
+                      <ul *ngIf="firstChildren.children" class="nav sidebar-subnav level2">
+                        <li *ngFor='let secondChildren of firstChildren.children; let secondIndex = index'>
+                          <a *ngIf="!secondChildren.children"
+                             [attr.id]="'secondIndex' + secondChildren.id"
+                             title="{{secondChildren.title | translate}}">
+                            <label class="menu-title"
+                                   (click)="secondChildren.component ? openComponent(secondChildren) : false">
+                              <i [class]="secondChildren.icon" *ngIf="secondChildren.icon"></i>
+                              <span>{{secondChildren.title | translate}}</span>
+                            </label>
+                            <i [ngClass]="secondChildren.pinned ? 'fas' : 'fal'" class="fa-star"
+                               (click)="clickFavoriteButton(secondChildren)"
+                               *ngIf="secondChildren.component && secondChildren.canBePinned"></i>
+                          </a>
+                          <a *ngIf="secondChildren.children"
+                             title="{{secondChildren.title | translate}}"
+                             class="nav-dropdown-toggle"
+                             naNavDropdown naMouseHover>
+                            <span>{{secondChildren.title | translate}}</span>
+                          </a>
+                          <ul *ngIf="secondChildren.children"
+                              class="nav sidebar-subnav level3">
+                            <li *ngFor='let thirdChildren of secondChildren.children; let thirdIndex = index'>
+                              <a *ngIf="!thirdChildren.children"
+                                 [attr.id]="'thirdIndex' + thirdChildren.id"
+                                 title="{{thirdChildren.title | translate}}">
+                                <label class="menu-title"
+                                       (click)="thirdChildren.component ? openComponent(thirdChildren) : false">
+                                  <i [class]="thirdChildren.icon" *ngIf="thirdChildren.icon"></i>
+                                  <span>{{thirdChildren.title | translate}}</span>
+                                </label>
+                                <i [ngClass]="thirdChildren.pinned ? 'fas' : 'fal'" class="fa-star"
+                                   (click)="clickFavoriteButton(thirdChildren)"
+                                   *ngIf="thirdChildren.component && thirdChildren.canBePinned"></i>
+                              </a>
+                              <a *ngIf="thirdChildren.children"
+                                 title="{{thirdChildren.title | translate}}"
+                                 class="nav-dropdown-toggle"
+                                 naNavDropdown naMouseHover>
+                                <span>{{thirdChildren.title | translate}}</span>
+                              </a>
+                              <ul *ngIf="thirdChildren.children"
+                                  class="nav sidebar-subnav level4">
+                                <li *ngFor='let fourthChildren of thirdChildren.children; let fourthIndex = index'>
+                                  <a *ngIf="!fourthChildren.children"
+                                     style="margin-left: 25px;"
+                                     [attr.id]="'fourthIndex' + fourthChildren.id"
+                                     title="{{fourthChildren.title | translate}}">
+                                    <label class="menu-title"
+                                           (click)="fourthChildren.component ? openComponent(fourthChildren) : false">
+                                      <i [class]="fourthChildren.icon" *ngIf="fourthChildren.icon"></i>
+                                      <span>{{fourthChildren.title | translate}}</span>
+                                    </label>
+                                    <i [ngClass]="fourthChildren.pinned ? 'fas' : 'fal'" class="fa-star"
+                                       (click)="clickFavoriteButton(fourthChildren)"
+                                       *ngIf="fourthChildren.component && fourthChildren.canBePinned"></i>
+                                  </a>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        <li>
+                      </ul>
+                    <li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <ul *ngIf="searchText" class="filteredMenu" #filteredMenuList>
+          <li *ngFor="let menuItemMain of filteredMenu2; let i = index"
+              [class.active]="i == selectionPosition">
+            <label class="menu-title"
+                   [class.disabled]="!menuItemMain.component"
+                   (click)="menuItemMain.component ? openComponent(menuItemMain) : false">
+              <span> {{menuItemMain.title | translate}}</span>
+            </label>
+            <i [ngClass]="menuItemMain.pinned ? 'fas' : 'fal'" class="fa-star"
+               (click)="clickFavoriteButton(menuItemMain)"
+               *ngIf="menuItemMain.component"></i>
+          </li>
+        </ul>
+        <div *ngIf="searchText && filteredMenu2.length === 0">
+          <span> {{'not_found' | translate}}</span>
+        </div>
+      </tab>
+      <tab [heading]="'favorites' | translate" id="favoriteMenus">
+        <ul class="filteredMenu" #favoriteMenuList>
+          <li *ngFor="let menuItem of favoriteMenu; let i = index">
+            <label class="menu-item" (click)="openFavorite(menuItem)">
+              <span> {{menuItem.description | translate}}</span>
+            </label>
+            <i class="fa fa-trash-alt" (click)="removeFavorite(menuItem)"></i>
+          </li>
+        </ul>
+      </tab>
+    </tabset>
+  </div>
+</aside>

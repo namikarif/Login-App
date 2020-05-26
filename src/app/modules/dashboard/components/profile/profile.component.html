@@ -1,0 +1,173 @@
+<div class="profile-container">
+  <div class="profile-body">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="full-height">
+          <div class="profile-detail-card">
+            <div class="profile-img">
+              <div class="profile-img-wrapper">
+                <img [src]="userImg" [alt]="userProfile?.name">
+              </div>
+            </div>
+            <div class="user-detail">
+              <span>{{userProfile?.name}} {{userProfile?.surname}}</span>
+              <span>{{userProfile?.email}}</span>
+            </div>
+          </div>
+          <div class="body-separator"></div>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="full-height">
+          <tabset>
+            <tab [heading]="'profil_detail' | translate" id="tab1">
+              <form>
+                <div class="form-body">
+                  <div class="form-group row">
+                    <div class="col-10">
+                      <h3 class="form-title">1. {{'general_info' | translate}}</h3>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="name" class="col-md-3 col-form-label">{{'name' | translate}}</label>
+                    <div class="col-md-8">
+                      <input class="form-control form-control-sm"
+                             id="name"
+                             name="name"
+                             type="text"
+                             #name="ngModel"
+                             [(ngModel)]="userProfile.name" required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="surname" class="col-md-3 col-form-label">{{'surname' | translate}}</label>
+                    <div class="col-md-8">
+                      <input class="form-control form-control-sm"
+                             id="surname"
+                             name="surname"
+                             type="text"
+                             #name="ngModel"
+                             [(ngModel)]="userProfile.surname" required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="email" class="col-md-3 col-form-label">{{'email' | translate}}</label>
+                    <div class="col-md-8">
+                      <input class="form-control form-control-sm"
+                             id="email"
+                             name="email"
+                             type="email"
+                             #email="ngModel"
+                             [(ngModel)]="userProfile.email" required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="phone" class="col-md-3 col-form-label">{{'phone' | translate}}</label>
+                    <div class="col-md-8">
+                      <input class="form-control form-control-sm"
+                             id="phone"
+                             name="phone"
+                             type="text"
+                             [(ngModel)]="userProfile.phone" required>
+                    </div>
+                  </div>
+                  <div class="form-seperator"></div>
+
+                  <div class="form-group row">
+                    <div class="col-10">
+                      <h3 class="form-title">2. {{'address_info' | translate}}</h3>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="address" class="col-md-3 col-form-label">{{'country' | translate}}</label>
+                    <div class="col-md-8">
+                      <input class="form-control form-control-sm" id="address" type="text" value="Türkiye">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="city" class="col-md-3 col-form-label">{{'city' | translate}}</label>
+                    <div class="col-md-8">
+                      <input class="form-control form-control-sm" id="city" type="text" value="İstanbul">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="county" class="col-md-3 col-form-label">{{'county' | translate}}</label>
+                    <div class="col-md-8">
+                      <input class="form-control form-control-sm" id="county" type="text" value="Fatih">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="post-code" class="col-md-3 col-form-label">{{'post_code' | translate}}</label>
+                    <div class="col-md-8">
+                      <input class="form-control form-control-sm" id="post-code" type="text" value="34015">
+                    </div>
+                  </div>
+
+                  <div class="form-seperator"></div>
+                  <div class="form-group row">
+                    <div class="col-10">
+                      <h3 class="form-title">3. {{'social_media_accounts' | translate}}</h3>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="linkedin" class="col-md-3 col-form-label">Linkedin</label>
+                    <div class="col-md-8">
+                      <input class="form-control form-control-sm" id="linkedin" type="text"
+                             value="https://www.linkedin.com/in/namikarifoglu">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="facebook" class="col-md-3 col-form-label">Facebook</label>
+                    <div class="col-md-8">
+                      <input class="form-control form-control-sm" id="facebook" type="text"
+                             value="www.facebook.com/namikarifoglu">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="twitter" class="col-md-3 col-form-label">Twitter</label>
+                    <div class="col-md-8">
+                      <input class="form-control form-control-sm" id="twitter" type="text"
+                             value="www.twitter.com/namikarifoglu">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="instagram" class="col-md-3 col-form-label">Instagram</label>
+                    <div class="col-md-8">
+                      <input class="form-control form-control-sm" type="text" id="instagram"
+                             value="www.instagram.com/namikarif">
+                    </div>
+                  </div>
+                </div>
+                <div class="m-portlet__foot m-portlet__foot--fit">
+                  <div class="m-form__actions">
+                    <div class="row">
+                      <div class="col-md-3">
+                      </div>
+                      <div class="col-md-8">
+                        <button type="submit" class="btn btn-greenish">{{'update' | translate}}</button>&nbsp;&nbsp;
+                        <button type="reset" class="btn btn-default">{{'cancel' | translate}}</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </tab>
+            <tab [heading]="'logs' | translate" class="logs">
+              <ul>
+                <li *ngFor="let log of userLogs">
+                  <span class="detail">
+                    {{log.log_detail | translate}}
+                  </span>
+                  <span class="date">
+                    {{log.log_date}}
+                  </span>
+                </li>
+              </ul>
+            </tab>
+          </tabset>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

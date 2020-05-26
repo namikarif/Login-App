@@ -1,0 +1,28 @@
+<p-sidebar [(visible)]="showSidebar" position="right" styleClass="na-sidebar" (onHide)="closeSidebar()">
+  <div class="sidebar-header">
+    <label>{{'title' | translate}}</label>
+  </div>
+  <tabset>
+    <tab [heading]="'general' | translate" id="tab1">
+      <accordion>
+        <accordion-group>
+          <div accordion-heading class="clearfix">
+            <i class="fa fa-globe"></i> {{'language' | translate}}
+          </div>
+          <label for="language" style="display:none;"></label>
+          <select name="language"
+                  id="language"
+                  class="form-control form-control-sm"
+                  [(ngModel)]="language"
+                  (change)="selectLang(language)">
+            <option value="tr">{{'lang_tr' | translate}}</option>
+            <option value="en">{{'lang_gb' | translate}}</option>
+            <option value="az">{{'lang_az' | translate}}</option>
+            <option value="ru">{{'lang_ru' | translate}}</option>
+            <option value="fa">{{'lang_fa' | translate}}</option>
+          </select>
+        </accordion-group>
+      </accordion>
+    </tab>
+  </tabset>
+</p-sidebar>
