@@ -1,4 +1,4 @@
-# NaNi Login App
+# Angular Dashboard App
 
 ![alt text](https://erp.tufine.com.tr/login/cod.jpg)
 ![alt text](https://erp.tufine.com.tr/login/cod2.jpg)
