@@ -47,12 +47,12 @@
     "rxjs": "^5.5.12",
     "sortablejs": "^1.9.0",
     "sweetalert2": "^6.11.5",
-    "ts-loader": "^4.5.0",
+    "ts-loader": "^9.4.2",
     "types": "^0.1.1",
     "zone.js": "^0.8.29"
   },
   "devDependencies": {
-    "@angular/cli": "^1.7.4",
+    "@angular/cli": "^15.0.4",
     "@angular/compiler-cli": "^5.2.11",
     "@angular/language-service": "^5.2.11",
     "@angularclass/hmr": "^2.1.3",
